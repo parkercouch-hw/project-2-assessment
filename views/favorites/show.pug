@@ -1,0 +1,9 @@
+extends ../layout.pug
+
+block content
+  h1.tc(class= animal.extinct ? "red" : "black")= animal.species_name
+
+  .w-95.center.flex.flex-wrap.justify-center.flex-column
+    img.img.pa0.mb1.center.ba.br2.vh-75(src= animal.image_url, alt= animal.species_name)
+    h3.i.tc= animal.scientific_name
+    p.h5.overflow-y-scroll.tl= animal.description

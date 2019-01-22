@@ -39,8 +39,30 @@ app.use((req, res, next) => {
 });
 
 
-app.get('/', (req, res) => {
-  res.render('home');
+app.get('/', async (req, res) => {
+  try {
+    const animals = await db.animal.findAll({
+      attributes: [
+        'species_name',
+        'scientific_name',
+        'image_url',
+        'description',
+        'extinct',
+      ],
+    });
+
+    if (animals.length > 0) {
+      const animal = animals[Math.floor(Math.random() * animals.length)];
+      return res.render('home', { animal });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  const animal = {
+    species_name: 'Some bird',
+    image_url: 'https://onehdwallpaper.com/wp-content/uploads/2015/07/Beauty-Of-Animals-in-HD-Wallpapers.jpg',
+  };
+  return res.render('home', { animal });
 });
 
 // CONTROLLERS

@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
   try {
     const favorites = await db.animal.findAll({
       attributes: [
+        'id',
         'species_name',
         'scientific_name',
         'image_url',
@@ -36,8 +37,26 @@ router.post('/', newFaveValidate, newFaveForm);
 // GET /favorites/new -- Show a form to add a new animal
 router.get('/new', newFaveForm);
 
+// GET /favorites/:idx -- Show specific animal
+router.get('/:idx', async (req, res) => {
+  try {
+    const animal = await db.animal.findOne({
+      where: {
+        id: req.params.idx,
+      },
+    });
 
-// Callback used in to display sign up form
+    if (animal) {
+      return res.render('favorites/show', { animal });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  req.flash('error', 'No animal to be found there...');
+  return res.redirect('/favorites');
+});
+
+
 function newFaveForm (req, res) {
   res.render('favorites/new', { prevData: req.body, alerts: req.flash() });
 }

@@ -5,8 +5,10 @@ block content
 
   .w-95.center.flex.flex-wrap.justify-center
     each fave in favorites
-      .w5.ba.br2.ma1
-        img.img.w-100.pa0.mb1(src= fave.image_url, alt= fave.species_name)
+      .w300.ba.br2.ma1.tc.pa2.pt3
+        img.img.pa0.mb1.mh300.mw300.center.ba.br2(src= fave.image_url, alt= fave.species_name)
         h2.tc(class= fave.extinct ? "red" : "black")= fave.species_name
         h3.i.tc= fave.scientific_name
-        p.h5.overflow-y-scroll= fave.description
+        p.h5.overflow-y-scroll.tl= fave.description
+        .w-100
+          a.w-50.center.bg-light-blue.ba.br2.lh-h2.no-underline.pointer.grow.black(href="/favorites/" + fave.id) More Info

@@ -30,6 +30,18 @@ html {
   height: 90vh;
 }
 
+.mh300 {
+  max-height: 300px;
+}
+
+.mw300 {
+  max-width: 300px;
+}
+
+.w300 {
+  width: 300px;
+}
+
 .min-vh-90 {
   min-height: 90vh;
 }
