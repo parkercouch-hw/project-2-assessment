@@ -19,10 +19,9 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    if (favorites) {
-      return res.render('favorites/index', { favorites })
+    if (favorites.length > 0) {
+      return res.render('favorites/index', { favorites });
     }
-
   } catch (error) {
     console.log(error);
   }
@@ -38,7 +37,6 @@ router.post('/', newFaveValidate, newFaveForm);
 router.get('/new', newFaveForm);
 
 
-
 // Callback used in to display sign up form
 function newFaveForm (req, res) {
   res.render('favorites/new', { prevData: req.body, alerts: req.flash() });
@@ -51,39 +49,34 @@ async function newFaveValidate (req, res, next) {
   try {
     const [fave, wasCreated] = await db.animal.findOrCreate({
       where: {
-        scientific_name: req.body.scientific_name
+        scientific_name: req.body.scientific_name,
       },
       defaults: req.body,
     });
 
-    if(wasCreated) {
+    if (wasCreated) {
       req.flash('success', `Yay! ${fave.species_name} added!`);
       return res.redirect('/favorites');
-    } else {
-      req.flash('error', `${fave.scientific_name} is already faved!`);
-      return res.redirect('/favorites/new');
     }
 
+    req.flash('error', `${fave.scientific_name} is already faved!`);
+    return next();
   } catch (error) {
     if (error.errors) {
-      err.errors.forEach(e => {
+      error.errors.forEach((e) => {
         if (e.type === 'Validation error') {
           req.flash('error', e.message);
         } else {
           console.log('Not validation error: ', e);
         }
-      })
+      });
       return next();
     }
-    console.log('Error: ', err);
+    console.log('Error: ', error);
     req.flash('error', 'A server error occured. Please try again.');
     return res.render('error');
   }
 }
-
-
-
-
 
 
 module.exports = router;

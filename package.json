@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/parkercouch/project-2-assessment#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
