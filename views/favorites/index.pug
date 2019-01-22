@@ -1,0 +1,12 @@
+extends ../layout.pug
+
+block content
+  h1.tc Favorites List
+
+  .w-95.center.flex.flex-wrap.justify-center
+    each fave in favorites
+      .w5.ba.br2.ma1
+        img.img.w-100.pa0.mb1(src= fave.image_url, alt= fave.species_name)
+        h2.tc(class= fave.extinct ? "red" : "black")= fave.species_name
+        h3.i.tc= fave.scientific_name
+        p.h5.overflow-y-scroll= fave.description

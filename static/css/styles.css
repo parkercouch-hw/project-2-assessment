@@ -1,0 +1,59 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.word-wrap {
+  word-break: break-word;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.tiny-icon {
+  width: 10px;
+}
+
+.mw-95 {
+  max-width: 95%;
+}
+
+.w-95 {
+  width: 95%;
+}
+
+.vh-90 {
+  height: 90vh;
+}
+
+.min-vh-90 {
+  min-height: 90vh;
+}
+
+.force-to-top {
+  margin-bottom: auto;
+}
+
+.lh-h2 {
+  line-height: 2rem;
+}
+
+.hidden {
+  position: absolute;
+  display: none;
+  visibility: hidden;
+}
+
+@media screen and (min-width: 30em) {
+  .w8-ns {
+    width: 30rem !important;
+  }
+
+  .lh-h3-ns {
+    line-height: 4rem;
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "project-2-assessment",
+  "version": "1.0.0",
+  "description": "Assessment of unit 2 material",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parkercouch/project-2-assessment.git"
+  },
+  "author": "Parker Couch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/parkercouch/project-2-assessment/issues"
+  },
+  "homepage": "https://github.com/parkercouch/project-2-assessment#readme",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "method-override": "^3.0.0",
+    "path": "^0.12.7",
+    "pg": "^7.8.0",
+    "pug": "^2.0.3",
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^4.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0"
+  }
+}

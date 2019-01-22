@@ -1,0 +1,22 @@
+extends ../layout.pug
+
+block content
+  h1.tc Add favorite
+
+  form.w-90.w8-ns.vh-75.flex.justify-start.items-start.flex-column.center(action="/favorites", method="POST")
+    label(for="species_name") Species Name:
+    input#species_name.mb2.w-90(type="text", name="species_name" required)
+
+    label(for="scientific_name") Scientific Name:
+    input#scientific_name.mb2.w-90(type="text", name="scientific_name" required)
+    
+    label(for="image_url") Image Url:
+    input#image_url.mb2.w-90(type="text", name="image_url" required)
+
+    label(for="description") Description:
+    textarea#description.mb2.w-90(name="description", cols="50", rows="10" required)
+
+    label(for="extinct") Extinct?
+    input#extict.mb2.w-90(type="checkbox", name="extinct")
+
+    input.w3.h2.grow.pointer.bg-light-blue.tc.lh-h2.center(type="submit", value="Add")

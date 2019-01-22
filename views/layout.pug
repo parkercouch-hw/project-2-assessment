@@ -1,0 +1,33 @@
+doctype
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="X-UA-Compatible" content="ie=edge")
+    title Fave Animals
+
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet", href="/css/styles.css", type="text/css")
+    link(rel="stylesheet", href="/css/tachyons.min.css", type="text/css")
+    link(rel="stylesheet", href="/css/alertify.min.css", type="text/css")
+    link(rel="stylesheet", href="/css/semantic.css", type="text/css")
+
+
+  body.roboto
+    include partials/header
+
+    .container.w-100.vh-100.ma0.pt1.pt2-ns
+      block alerts
+        ul#alerts.hidden
+          if alerts.error
+            each error in alerts.error
+              li(class= "error-msg")= error 
+          if alerts.success
+            each success in alerts.success
+              li(class= "success-msg")= success
+
+      block content
+
+    script(src="/js/alertify.min.js")
+    script(src="/js/scripts.js")
+    block scripts

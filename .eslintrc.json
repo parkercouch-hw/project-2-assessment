@@ -1,0 +1,15 @@
+{
+    "extends": "airbnb-base",
+    "env" : {
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "func-names": ["error", "as-needed"],
+        "indent": ["error", 2],
+        "strict": "off",
+        "no-param-reassign": "off",
+        "no-unused-vars": "off",
+        "arrow-body-style": "off"
+    }
+}
