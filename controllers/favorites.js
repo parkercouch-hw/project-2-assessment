@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
   }
 
   req.flash('error', 'No favorites yet. Add one now!');
-  return res.redirect('/favorites/new');
+  return res.render('favorites/index', { favorites: [], alerts: req.flash() });
 });
 
 // POST /favorites -- Add a new favorite animal
