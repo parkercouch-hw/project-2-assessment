@@ -30,6 +30,10 @@ html {
   height: 90vh;
 }
 
+.max-vh-75 {
+  max-height: 75vh;
+}
+
 .mh300 {
   max-height: 300px;
 }
